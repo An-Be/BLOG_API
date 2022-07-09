@@ -1,0 +1,35 @@
+{
+    "blogsData": [
+      {
+        "title": "Stranger Things",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus rutrum ut nisi ac malesuada. Etiam maximus, nunc eu venenatis imperdiet, turpis eros efficitur elit, non fringilla tellus leo vitae diam. Etiam dui erat, tempus non sagittis non, pellentesque id quam. Mauris varius interdum augue, non tempor massa feugiat sit amet. Donec sit amet ipsum facilisis, aliquet lectus eget, porta lacus. Mauris pharetra ligula congue mauris hendrerit, at iaculis ligula porta. Duis diam nulla, dignissim non blandit non, dictum accumsan odio. Phasellus sit amet cursus metus. Integer ullamcorper malesuada velit et rutrum. Aenean finibus consectetur metus at lacinia. Curabitur non lectus dui. Donec ante turpis, feugiat quis lacinia at, malesuada ac justo. Nunc vitae tortor lorem. Mauris ullamcorper elementum risus, vestibulum varius massa sollicitudin ut.",
+        "topic": "TV Shows"
+
+      },
+      {
+        "title": "Javascript",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus rutrum ut nisi ac malesuada. Etiam maximus, nunc eu venenatis imperdiet, turpis eros efficitur elit, non fringilla tellus leo vitae diam. Etiam dui erat, tempus non sagittis non, pellentesque id quam. Mauris varius interdum augue, non tempor massa feugiat sit amet. Donec sit amet ipsum facilisis, aliquet lectus eget, porta lacus. Mauris pharetra ligula congue mauris hendrerit, at iaculis ligula porta. Duis diam nulla, dignissim non blandit non, dictum accumsan odio. Phasellus sit amet cursus metus. Integer ullamcorper malesuada velit et rutrum. Aenean finibus consectetur metus at lacinia. Curabitur non lectus dui. Donec ante turpis, feugiat quis lacinia at, malesuada ac justo. Nunc vitae tortor lorem. Mauris ullamcorper elementum risus, vestibulum varius massa sollicitudin ut.",
+        "topic": "Technology"
+      },
+      {
+        "title": "Spaghetti and Meatballs",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus rutrum ut nisi ac malesuada. Etiam maximus, nunc eu venenatis imperdiet, turpis eros efficitur elit, non fringilla tellus leo vitae diam. Etiam dui erat, tempus non sagittis non, pellentesque id quam. Mauris varius interdum augue, non tempor massa feugiat sit amet. Donec sit amet ipsum facilisis, aliquet lectus eget, porta lacus. Mauris pharetra ligula congue mauris hendrerit, at iaculis ligula porta. Duis diam nulla, dignissim non blandit non, dictum accumsan odio. Phasellus sit amet cursus metus. Integer ullamcorper malesuada velit et rutrum. Aenean finibus consectetur metus at lacinia. Curabitur non lectus dui. Donec ante turpis, feugiat quis lacinia at, malesuada ac justo. Nunc vitae tortor lorem. Mauris ullamcorper elementum risus, vestibulum varius massa sollicitudin ut.",
+        "topic": "Cooking"
+      },
+      {
+        "title": "The Job Search",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus rutrum ut nisi ac malesuada. Etiam maximus, nunc eu venenatis imperdiet, turpis eros efficitur elit, non fringilla tellus leo vitae diam. Etiam dui erat, tempus non sagittis non, pellentesque id quam. Mauris varius interdum augue, non tempor massa feugiat sit amet. Donec sit amet ipsum facilisis, aliquet lectus eget, porta lacus. Mauris pharetra ligula congue mauris hendrerit, at iaculis ligula porta. Duis diam nulla, dignissim non blandit non, dictum accumsan odio. Phasellus sit amet cursus metus. Integer ullamcorper malesuada velit et rutrum. Aenean finibus consectetur metus at lacinia. Curabitur non lectus dui. Donec ante turpis, feugiat quis lacinia at, malesuada ac justo. Nunc vitae tortor lorem. Mauris ullamcorper elementum risus, vestibulum varius massa sollicitudin ut.",
+        "topic": "Career"
+      },
+      {
+        "title": "Soccer",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus rutrum ut nisi ac malesuada. Etiam maximus, nunc eu venenatis imperdiet, turpis eros efficitur elit, non fringilla tellus leo vitae diam. Etiam dui erat, tempus non sagittis non, pellentesque id quam. Mauris varius interdum augue, non tempor massa feugiat sit amet. Donec sit amet ipsum facilisis, aliquet lectus eget, porta lacus. Mauris pharetra ligula congue mauris hendrerit, at iaculis ligula porta. Duis diam nulla, dignissim non blandit non, dictum accumsan odio. Phasellus sit amet cursus metus. Integer ullamcorper malesuada velit et rutrum. Aenean finibus consectetur metus at lacinia. Curabitur non lectus dui. Donec ante turpis, feugiat quis lacinia at, malesuada ac justo. Nunc vitae tortor lorem. Mauris ullamcorper elementum risus, vestibulum varius massa sollicitudin ut.",
+        "topic": "Sports"
+      },
+      {
+        "title": "Bitcoin",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus rutrum ut nisi ac malesuada. Etiam maximus, nunc eu venenatis imperdiet, turpis eros efficitur elit, non fringilla tellus leo vitae diam. Etiam dui erat, tempus non sagittis non, pellentesque id quam. Mauris varius interdum augue, non tempor massa feugiat sit amet. Donec sit amet ipsum facilisis, aliquet lectus eget, porta lacus. Mauris pharetra ligula congue mauris hendrerit, at iaculis ligula porta. Duis diam nulla, dignissim non blandit non, dictum accumsan odio. Phasellus sit amet cursus metus. Integer ullamcorper malesuada velit et rutrum. Aenean finibus consectetur metus at lacinia. Curabitur non lectus dui. Donec ante turpis, feugiat quis lacinia at, malesuada ac justo. Nunc vitae tortor lorem. Mauris ullamcorper elementum risus, vestibulum varius massa sollicitudin ut.",
+        "topic": "Crypto"
+      }
+    ]
+  }

@@ -1,0 +1,19 @@
+{
+    "usersData": [
+      {
+        "username": "WByers",
+        "password": "ThisIsA",
+        "firstName": "Will",
+        "lastName": "Byers",
+        "email": "possiblyVecna@gmail.com"
+
+      },
+      {
+        "username": "NWheeler",
+        "password": "jgbr273Fh",
+        "firstName": "Nancy",
+        "lastName": "Wheeler",
+        "email": "boss@gmail.com"
+      }
+    ]
+  }

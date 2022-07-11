@@ -7,7 +7,7 @@ const debug = require("debug")("app:server");
 const { db } = require("./src/db"); //import db
 
 //import routes from src/routes/index
-//const routes = require('./src/routes/index);
+const routes = require('./src/routes/index');
 
 //check DB connection
 db.authenticate()
@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, "src", "public")));
 app.use(express.json()); //server can speak in json
 
 //app.use to use routes
-//app.use('/api', routes);
+app.use('/api', routes);
 
 //const for PORT
 const PORT = process.env.PORT || 8000;

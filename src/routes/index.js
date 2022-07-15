@@ -11,7 +11,13 @@ const router = express.Router();
 const {
     getAllBlogs,
     getAllUsers,
-    getAllComments
+    getAllComments,
+    getBlogById,
+    getUsersById,
+    getCommentsById,
+    deleteBlog,
+    deleteUser,
+    deleteComment
 
 } = require('../controllers/index');
 
@@ -19,5 +25,12 @@ const {
 router.get('*/blogs', getAllBlogs); //route to get all blogs
 router.get('*/users', getAllUsers); //route to get all users
 router.get('*/comments', getAllComments); //route to get all comments
+router.get('*/blogs/:id', getBlogById); //route to get blog by Id
+router.get('*/users/:id', getUsersById); //route to get user by Id
+router.get('*/comments/:id', getCommentsById); //route to get comment by Id
+router.delete('*/blogs/delete/:id', deleteBlog); //route to delete blog
+router.delete('*/users/delete/:id', deleteUser); //route to delete blog
+router.delete('*/comments/delete/:id', deleteComment); //route to delete blog
 
+ 
 module.exports = router;

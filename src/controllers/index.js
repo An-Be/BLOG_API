@@ -66,6 +66,11 @@ exports.getAllUsers = async (req, res) => {
         });
     };
 }
+/**
+ * @desc Get all comments
+ * @route GET api/comments
+ * @access Public
+ */
 
 exports.getAllComments = async (req, res) =>{
     try{
@@ -89,4 +94,153 @@ exports.getAllComments = async (req, res) =>{
             message: `All comments not returned - Error: ${error}`
         });
     };
+}
+/**
+ * @desc Get Blog by Id
+ * @route GET api/blogs/:id
+ * @access Public
+ */
+
+exports.getBlogById = async (req, res) => {
+    const blogId = req.params.id;
+
+    try{
+        const findBlogById = await Blog.findByPk(blogId);
+        res.status(200).json({
+            findBlogById,
+            success: true,
+            message: 'Blog returned!'
+        })
+
+    }catch(error){
+        debug(error);
+        res.status(400).json({
+            success: false,
+            message: `Blog not returned - Error: ${error}`
+        });
+    }
+}
+
+/**
+ * @desc Get User by Id
+ * @route GET api/users/:id
+ * @access Public
+ */
+exports.getUsersById = async (req, res) =>{
+    const userId = req.params.id;
+
+    try{
+        const findUserById = await User.findByPk(userId);
+        res.status(200).json({
+            findUserById,
+            success: true,
+            message: 'User returned!'
+        })
+
+    }catch(error){
+        debug(error);
+        res.status(400).json({
+            success: false,
+            message: `User not returned - Error: ${error}`
+        });
+    }
+}
+
+/**
+ * @desc Get comment by Id
+ * @route GET api/comments/:id
+ * @access Public
+ */
+exports.getCommentsById = async (req, res) => {
+    const commentId = req.params.id;
+
+    try{
+        const findCommentById = await Comment.findByPk(commentId);
+        res.status(200).json({
+            findCommentById,
+            success: true,
+            message: 'Comment returned!'
+        })
+    }catch(error){
+        debug(error);
+        res.status(400).json({
+            success: false,
+            message: `Comment not returned - Error: ${error}`
+        });
+    }
+}
+/**
+ * @desc Delete blog
+ * @route GET api/blogs/delete/:id
+ * @access Private
+ */
+exports.deleteBlog = async (req, res) =>{
+    const blogId = req.params.id;
+
+    try{
+        const blogToDelete = await Blog.findByPk(blogId);
+        const deletedBlog = await blogToDelete.destroy();
+        res.status(200).json({
+            deletedBlog,
+            success: true,
+            message: 'Blog deleted'
+        })
+
+    }catch(error){
+        debug(error);
+        res.status(400).json({
+            success: false,
+            message: `Blog not deleted - Error: ${error}`
+        });
+    }
+}
+/**
+ * @desc Delete User
+ * @route GET api/users/delete/:id
+ * @access Private
+ */
+ exports.deleteUser = async (req, res) =>{
+    const userId = req.params.id;
+
+    try{
+        const userToDelete = await User.findByPk(userId);
+        const deletedUser = await userToDelete.destroy();
+        res.status(200).json({
+            deletedUser,
+            success: true,
+            message: 'User deleted'
+        })
+
+    }catch(error){
+        debug(error);
+        res.status(400).json({
+            success: false,
+            message: `User not deleted - Error: ${error}`
+        });
+    }
+}
+/**
+ * @desc Delete comment
+ * @route GET api/comments/delete/:id
+ * @access Private
+ */
+ exports.deleteComment = async (req, res) =>{
+    const commentId = req.params.id;
+
+    try{
+        const commentToDelete = await Comment.findByPk(commentId);
+        const deletedComment = await commentToDelete.destroy();
+        res.status(200).json({
+            deletedComment,
+            success: true,
+            message: 'Comment deleted'
+        })
+
+    }catch(error){
+        debug(error);
+        res.status(400).json({
+            success: false,
+            message: `Comment not deleted - Error: ${error}`
+        });
+    }
 }

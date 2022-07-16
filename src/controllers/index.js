@@ -177,7 +177,6 @@ exports.getCommentsById = async (req, res) => {
  */
 exports.getUsersBlogs = async (req, res) => {
     const paramsUserId = req.params.userid;
-    debug(paramsUserId);
 
     try{
         const findBlogsMatchingUserId = await Blog.findAll({
@@ -284,7 +283,7 @@ exports.getBlogsComments = async (req, res) => {
 
 /**
  * @desc Delete blog
- * @route GET api/blogs/delete/:id
+ * @route Delete api/blogs/delete/:id
  * @access Private
  */
 exports.deleteBlog = async (req, res) =>{
@@ -309,7 +308,7 @@ exports.deleteBlog = async (req, res) =>{
 }
 /**
  * @desc Delete User
- * @route GET api/users/delete/:id
+ * @route Delete api/users/delete/:id
  * @access Private
  */
  exports.deleteUser = async (req, res) =>{
@@ -333,7 +332,7 @@ exports.deleteBlog = async (req, res) =>{
 }
 /**
  * @desc Delete comment
- * @route GET api/comments/delete/:id
+ * @route Delete api/comments/delete/:id
  * @access Private
  */
  exports.deleteComment = async (req, res) =>{
@@ -357,7 +356,7 @@ exports.deleteBlog = async (req, res) =>{
 }
 /**
  * @desc UPDATE Blog
- * @route GET api/update/blog/:id
+ * @route Delete api/update/blog/:id
  * @access Private
  */
 exports.updateBlog = async (req, res) => {
@@ -383,7 +382,7 @@ exports.updateBlog = async (req, res) => {
 }
 /**
  * @desc UPDATE Comment
- * @route GET api/update/comment/:id
+ * @route PUT api/update/comment/:id
  * @access Private
  */
  exports.updateComment = async (req, res) => {
@@ -409,7 +408,7 @@ exports.updateBlog = async (req, res) => {
 }
 /**
  * @desc UPDATE user
- * @route GET api/update/user/:id
+ * @route PUT api/update/user/:id
  * @access Private
  */
  exports.updateUser = async (req, res) => {
@@ -430,6 +429,78 @@ exports.updateBlog = async (req, res) => {
         res.status(400).json({
             success: false,
             message: 'User not updated'
+        })
+    }
+}
+/**
+ * @desc CREATE blog
+ * @route POST api/create/blog
+ * @access Private
+ */
+exports.createBlog = async (req, res) =>{
+    const createBody = req.body;
+
+    try{
+        const newBlog = await Blog.create(createBody);
+        res.status(200).json({
+            newBlog,
+            success: true,
+            message: 'New Blog Created'
+        })
+
+    }catch(error){
+        debug(error);
+        res.status(400).json({
+            success: false,
+            message: 'Blog not created'
+        })
+    }
+}
+/**
+ * @desc CREATE comment
+ * @route POST api/create/user
+ * @access Private
+ */
+ exports.createUser = async (req, res) =>{
+    const createBody = req.body;
+
+    try{
+        const newUser = await User.create(createBody);
+        res.status(200).json({
+            newUser,
+            success: true,
+            message: 'New User Created'
+        })
+
+    }catch(error){
+        debug(error);
+        res.status(400).json({
+            success: false,
+            message: 'User not created'
+        })
+    }
+}
+/**
+ * @desc CREATE user
+ * @route POST api/create/comment
+ * @access Private
+ */
+ exports.createComment = async (req, res) =>{
+    const createBody = req.body;
+
+    try{
+        const newComment = await Comment.create(createBody);
+        res.status(200).json({
+            newComment,
+            success: true,
+            message: 'New Comment Created'
+        })
+
+    }catch(error){
+        debug(error);
+        res.status(400).json({
+            success: false,
+            message: 'Comment not created'
         })
     }
 }

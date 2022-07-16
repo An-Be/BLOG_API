@@ -24,7 +24,10 @@ const {
     getBlogsComments,
     updateBlog,
     updateComment,
-    updateUser
+    updateUser,
+    createBlog,
+    createComment,
+    createUser
 
 } = require('../controllers/index');
 
@@ -45,6 +48,10 @@ router.delete('*/comments/delete/:id', deleteComment); //route to delete blog
 router.put('*/update/blog/:id', updateBlog); //route to update blog
 router.put('*/update/comment/:id', updateComment); //route to update Comment
 router.put('*/update/user/:id', updateUser); //route to update User
+router.post('*/create/blog', createBlog); //route to create a blog
+router.post('*/create/comment', createComment); //route to create a comment
+router.post('*/create/user', createUser); //route to create a user
+
 
 
  

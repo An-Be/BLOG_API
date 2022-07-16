@@ -2,6 +2,7 @@ const express = require('express');
 const debug = require('debug')('app:controllers');
 const { db } = require('../db');
 const { Blog, User, Comment } = require('../models/index');
+const { use } = require('../routes');
 
 //GET REQUESTS
 
@@ -170,6 +171,118 @@ exports.getCommentsById = async (req, res) => {
     }
 }
 /**
+ * @desc GET All Blogs written by a user
+ * @route GET api/user/blogs-written/:userid
+ * @access Public
+ */
+exports.getUsersBlogs = async (req, res) => {
+    const paramsUserId = req.params.userid;
+    debug(paramsUserId);
+
+    try{
+        const findBlogsMatchingUserId = await Blog.findAll({
+            where : {
+                UserId : paramsUserId
+            }
+        })
+        res.status(200).json({
+            findBlogsMatchingUserId,
+            success: true,
+            message: `Blogs by user ${paramsUserId} returned`
+        })     
+    }catch(error){
+        debug(error);
+        res.status(400).json({
+            success: false,
+            message: `Blogs by user ${paramsUserId} not returned - Error: ${error}`
+        });
+    }
+}
+/**
+ * @desc GET user that wrote a blog
+ * @route GET api/blog/find-user/:id
+ * @access Public
+ */
+ exports.getBlogsUser = async (req, res) => {
+    const blogId = req.params.id;
+
+    try{
+        const findBlog = await Blog.findByPk(blogId);
+        const userid = findBlog.dataValues.UserId;
+        const findUser = await User.findByPk(userid);
+
+        res.status(200).json({
+            findUser,
+            success: true,
+            message: `user found`
+        })     
+    }catch(error){
+        debug(error);
+        res.status(400).json({
+            success: false,
+            message: `User could not be located - Error: ${error}`
+        });
+    }
+}
+/**
+ * @desc GET all comments written by user
+ * @route GET api/user/comments/:userid
+ * @access Private
+ */
+exports.getUsersComments = async (req, res) => {
+    const paramsUserId = req.params.userid;
+
+    try{
+        const findUsersComments = await Comment.findAll({
+            where : {
+                UserId : paramsUserId
+            }
+        })
+        res.status(200).json({
+            findUsersComments,
+            success: true,
+            message: `Comments by user ${paramsUserId} returned`
+        }) 
+
+
+    }catch(error){
+        debug(error);
+        res.status(400).json({
+            success: false,
+            message: `Comments by user ${paramsUserId} not returned - Error: ${error}`
+        });
+    }
+}
+/**
+ * @desc GET all comments under a blog
+ * @route GET api/blog/find-comments/:blogid
+ * @access Private
+ */
+exports.getBlogsComments = async (req, res) => {
+    const paramsBlogId = req.params.blogid;
+
+    try{
+        const findAllCommentsUnderBlog = await Comment.findAll({
+            where : {
+                BlogId : paramsBlogId
+            }
+        })
+        res.status(200).json({
+            findAllCommentsUnderBlog,
+            success: true,
+            message: `Comments under blog ${paramsBlogId} returned`
+        }) 
+
+    }catch(error){
+        debug(error);
+        res.status(400).json({
+            success: false,
+            message: `Comments under Blog ${paramsBlogId} not returned - Error: ${error}`
+        });
+    }
+}
+
+/**
  * @desc Delete blog
  * @route GET api/blogs/delete/:id
  * @access Private
@@ -210,7 +323,6 @@ exports.deleteBlog = async (req, res) =>{
             success: true,
             message: 'User deleted'
         })
-
     }catch(error){
         debug(error);
         res.status(400).json({
@@ -235,12 +347,89 @@ exports.deleteBlog = async (req, res) =>{
             success: true,
             message: 'Comment deleted'
         })
-
     }catch(error){
         debug(error);
         res.status(400).json({
             success: false,
             message: `Comment not deleted - Error: ${error}`
         });
+    }
+}
+/**
+ * @desc UPDATE Blog
+ * @route GET api/update/blog/:id
+ * @access Private
+ */
+exports.updateBlog = async (req, res) => {
+    const id = req.params.id;
+    const updateBody = req.body;
+
+    try{
+        const blogToUpdate = await Blog.findByPk(id);
+        const updatedBlog = await blogToUpdate.update(updateBody);
+        res.status(200).json({
+            updatedBlog,
+            success: true,
+            message: 'Blog updated'
+        })
+
+    }catch(error){
+        debug(error);
+        res.status(400).json({
+            success: false,
+            message: 'Blog not updated'
+        })
+    }
+}
+/**
+ * @desc UPDATE Comment
+ * @route GET api/update/comment/:id
+ * @access Private
+ */
+ exports.updateComment = async (req, res) => {
+    const id = req.params.id;
+    const updateBody = req.body;
+
+    try{
+        const commentToUpdate = await Comment.findByPk(id);
+        const updatedComment = await commentToUpdate.update(updateBody);
+        res.status(200).json({
+            updatedComment,
+            success: true,
+            message: 'Comment updated'
+        })
+
+    }catch(error){
+        debug(error);
+        res.status(400).json({
+            success: false,
+            message: 'Comment not updated'
+        })
+    }
+}
+/**
+ * @desc UPDATE user
+ * @route GET api/update/user/:id
+ * @access Private
+ */
+ exports.updateUser = async (req, res) => {
+    const id = req.params.id;
+    const updateBody = req.body;
+
+    try{
+        const userToUpdate = await User.findByPk(id);
+        const updatedUser = await userToUpdate.update(updateBody);
+        res.status(200).json({
+            updatedUser,
+            success: true,
+            message: 'User updated'
+        })
+
+    }catch(error){
+        debug(error);
+        res.status(400).json({
+            success: false,
+            message: 'User not updated'
+        })
     }
 }

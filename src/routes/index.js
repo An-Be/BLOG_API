@@ -17,7 +17,14 @@ const {
     getCommentsById,
     deleteBlog,
     deleteUser,
-    deleteComment
+    deleteComment,
+    getUsersBlogs,
+    getBlogsUser,
+    getUsersComments,
+    getBlogsComments,
+    updateBlog,
+    updateComment,
+    updateUser
 
 } = require('../controllers/index');
 
@@ -28,9 +35,17 @@ router.get('*/comments', getAllComments); //route to get all comments
 router.get('*/blogs/:id', getBlogById); //route to get blog by Id
 router.get('*/users/:id', getUsersById); //route to get user by Id
 router.get('*/comments/:id', getCommentsById); //route to get comment by Id
+router.get('*/user/blogs-written/:userid', getUsersBlogs); //route to get a users blogs
+router.get('*/blog/find-user/:id', getBlogsUser); //route to get who wrote the blog
+router.get('*/user/comments/:userid', getUsersComments); //route to users comments
+router.get('*/blog/find-comments/:blogid', getBlogsComments); //route to all blogs comments
 router.delete('*/blogs/delete/:id', deleteBlog); //route to delete blog
 router.delete('*/users/delete/:id', deleteUser); //route to delete blog
 router.delete('*/comments/delete/:id', deleteComment); //route to delete blog
+router.put('*/update/blog/:id', updateBlog); //route to update blog
+router.put('*/update/comment/:id', updateComment); //route to update Comment
+router.put('*/update/user/:id', updateUser); //route to update User
+
 
  
 module.exports = router;
